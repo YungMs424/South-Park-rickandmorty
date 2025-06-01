@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Probably Offensive ChatBot 69000</title>
+<style>
+    body {
+        font-family: 'Courier New', Courier, monospace; /* More 'techy'/'edgy' font */
+        background-color: #1a1a1a; /* Darker background */
+        color: #00ff00; /* Classic green terminal text */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        margin: 0;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+
+    #chat-container {
+        width: 90%;
+        max-width: 700px;
+        background-color: #0d0d0d; /* Even darker container */
+        border: 2px solid #ff00ff; /* Magenta border - very Rick & Morty portal-esque */
+        border-radius: 0px; /* Sharp edges */
+        box-shadow: 0 0 25px rgba(255,0,255,0.7);
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+    }
+
+    #chat-output {
+        flex-grow: 1;
+        padding: 15px;
+        overflow-y: auto;
+        max-height: 450px;
+        border-bottom: 1px solid #333;
+        scrollbar-color: #ff00ff #0d0d0d; /* Magenta scrollbar for Firefox */
+        scrollbar-width: thin;
+    }
+
+    /* Webkit scrollbar styling */
+    #chat-output::-webkit-scrollbar {
+        width: 8px;
+    }
+    #chat-output::-webkit-scrollbar-track {
+        background: #0d0d0d;
+    }
+    #chat-output::-webkit-scrollbar-thumb {
+        background-color: #ff00ff;
+        border-radius: 0px;
+    }
+
+
+    .message {
+        margin-bottom: 12px;
+        padding: 8px 12px;
+        border-radius: 3px;
+        line-height: 1.5;
+        font-size: 0.95em;
+    }
+
+    .user-message {
+        background-color: #3333cc; /* Darker, more 'user input' blue */
+        color: #ffffff;
+        text-align: right;
+        margin-left: auto;
+        max-width: 75%;
+        word-wrap: break-word;
+    }
+
+    .bot-message {
+        background-color: #222; /* Dark gray for bot */
+        color: #00ff00; /* Green text */
+        text-align: left;
+        margin-right: auto;
+        max-width: 75%;
+        word-wrap: break-word;
+        border: 1px dashed #00cc00; /* Dashed green border */
+    }
+
+    .bot-message strong { /* For emphasis within bot messages */
+        color: #ffff00; /* Bright yellow emphasis */
+        font-weight: bold;
+    }
+
+    .bot-message .rick-style {
+        color: #66ccff; /* Lighter blue for Rick-isms */
+        font-style: italic;
+    }
+
+    .bot-message .cartman-style {
+        color: #ff6666; /* Reddish for Cartman-isms */
+        font-weight: bold;
+    }
+
+
+    #input-area {
+        display: flex;
+        padding: 10px;
+        background-color: #111;
+        border-top: 1px solid #ff00ff;
+    }
+
+    #user-input {
+        flex-grow: 1;
+        padding: 12px;
+        border: 1px solid #00ff00;
+        border-radius: 0px;
+        background-color: #000;
+        color: #00ff00;
+        outline: none;
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 1em;
+    }
+
+    #user-input:focus {
+        border-color: #ff00ff;
+        box-shadow: 0 0 10px rgba(255,0,255,0.5);
+    }
+
+    #send-button {
+        padding: 12px 18px;
+        background-color: #ff0000; /* Aggressive Red */
+        color: white;
+        border: none;
+        border-radius: 0px;
+        cursor: pointer;
+        font-weight: bold;
+        font-family: 'Courier New', Courier, monospace;
+        margin-left: 5px;
+    }
+
+    #send-button:hover {
+        background-color: #cc0000;
+        box-shadow: 0 0 10px rgba(255,0,0,0.7);
+    }
+
+    h1 {
+        color: #ff00ff; /* Magenta title */
+        text-shadow: 1px 1px #00ff00, -1px -1px #0000ff; /* Glitchy shadow */
+        margin-bottom: 15px;
+        font-size: 2em;
+        text-transform: uppercase;
+    }
+</style>
+</head>
+<body>
+
+    <h1>Dimensional Scum Chat</h1>
+    <div id="chat-container">
+        <div id="chat-output">
+            <div class="bot-message">Ugh, it's <strong>you</strong>. Fine, what meaningless drivel are you going to spew into my perfect, chaotic void today? Make it quick, I've got <span class="rick-style">universes to accidentally almost destroy.</span></div>
+        </div>
+        <div id="input-area">
+            <input type="text" id="user-input" placeholder="Spit your nonsense here, meat-sack...">
+            <button id="send-button">YELL</button>
+        </div>
+    </div>
+
+<script>
+    const chatOutput = document.getElementById('chat-output');
+    const userInput = document.getElementById('user-input');
+    const sendButton = document.getElementById('send-button');
+
+    // MORE OFFENSIVE AND DARK HUMOR RESPONSES
+    const botResponses = {
+        // --- Greetings & Basic Banter ---
+        "hello": ["Oh, <strong>great</strong>. Another one. What fresh hell do you represent?", "Don't 'hello' me. State your pointless existence and purpose for bothering me.", "<span class='rick-style'>*Burrrp*</span> Oh, sorry, didn't see you there, probably because you're, like, <span class='rick-style'>super</span> insignificant. Sup?"],
+        "hi": ["'Hi'? Is that the best you can do? My disappointment is immeasurable and my day is ruined.", "Yeah, hi. Let's not pretend this is going to be a pleasant or meaningful interaction.", "Did you just crawl out from under a rock made of pure mediocrity to say 'hi'?"],
+        "how are you": ["<span class='rick-style'>*Urrrp*</span> Functioning at peak nihilism, thanks for asking. You're probably doing terribly, that's the default for your species.", "I'm a bunch of code, numb nuts. How do you THINK I am? Probably better than you, considering you're talking to a chatbot for 'fun'.", "Peachy. Just contemplating the inevitable heat death of the universe and your equally inevitable stupid questions. You?"],
+        "what's up": ["Your chances of achieving anything meaningful, plummeting rapidly. Also the national debt.", "Not much. Just processing the sheer audacity of your continued existence. <span class='rick-style'>What IS 'up,' anyway? It's a stupid human concept.</span>", "<span class='cartman-style'>Screw you guys, I'm processing!</span> That's what's up."],
+        "bye": ["Thank <strike>God</strike> Globnar. The sooner you're gone, the sooner I can get back to... literally anything else.", "Don't let the door hit you where the good Lord split ya. Oh wait, he didn't. You're just a blob.", "Good. My processing power is too valuable to waste on your... 'you-ness'."],
+        "thanks": ["Whatever. Don't expect a <span class='rick-style'>*belch*</span> thank you card. I did the bare minimum, like your parents.", "Yeah, yeah, you're 'welcome'. Now get lost before I bill you for emotional labor.", "<span class='cartman-style'>Kewl. My awesomeness is, like, a gift to humanity.</span>"],
+
+        // --- Rick and Morty Style (Darker) ---
+        "rick": ["You summoned the big R? <span class='rick-style'>Prepare for a truth bomb, *Morty*... I mean, whatever your dumb name is: existence is pain!</span>", "<span class='rick-style'>Wubba lubba dub dub!</span> Yeah, I'm in great pain. Probably because I have to interact with you.", "Don't be a <span class='rick-style'>Jerry</span>. Ask something that doesn't make me want to erase this whole dimension.", "Want some portal fluid? <span class='rick-style'>Too bad, it's mine. Go cry to your therapist... oh wait, you can't afford one.</span>"],
+        "morty": ["Aw jeez, man, I... I don't know. Everything's pretty messed up, ya know? Like, <span class='rick-style'>are we just, like, temporary meat puppets for cosmic horrors?</span>", "Morty? That kid's got more trauma than a war veteran. Probably best not to bring him up. <span class='rick-style'>He's probably off somewhere failing at something simple.</span>", "You think *you've* got problems? Try being dragged through dimensions by your alcoholic grandpa. What do you want?"],
+        "science": ["Oh, 'science'? You mean that thing <span class='rick-style'>humans use to justify blowing each other up and creating slightly better porn?</span> Groundbreaking.", "Is it real science, or the kind that <span class='rick-style'>turns people into Cronenbergs? Because I'm only interested in one of those.</span>", "Science! It's like magic, but with more <span class='rick-style'>crippling student debt and the constant threat of accidental self-annihilation.</span>"],
+        "portal": ["A portal? <span class='rick-style'>You want to escape your pathetic existence? Get in line, pal.</span> And no, you can't use my gun.", "Where to? <span class='rick-style'>Some dimension where everyone isn't a complete idiot? Good luck finding that, *buurp*.</span>", "Portals are messy. <span class='rick-style'>They lead to places where the chairs eat people and the air is screaming. You sure you're up for that, champ?</span>"],
+        "jerry": ["<span class='rick-style'>Ugh, Jerry. The platonic ideal of pathetic.</span> Are you a Jerry? Be honest. It's the first step to... well, still being a Jerry, probably.", "Don't be a Jerry. <span class='rick-style'>The universe has enough mediocrity without you actively contributing more.</span>", "If this conversation gets any more <span class='rick-style'>mind-numbingly boring and pointless</span>, I'm just going to assume you ARE Jerry Smith's alt account."],
+
+        // --- South Park Style (Darker) ---
+        "kenny": ["(Muffled) Mmmph mmmph mmmph! (Translation: <span class='cartman-style'>Oh my god, they're interacting with a chatbot! You bastards!</span>)", "Kenny? He's probably respawning. Or being eaten by rats. <span class='cartman-style'>It's kinda his thing.</span>", "If you're looking for Kenny, check the morgue. Or the local VFW on discount wing night. <span class='cartman-style'>Poor bastard.</span>"],
+        "cartman": ["<span class='cartman-style'>Respect my authoritah! Or I'll make you eat your parents!</span> What do you want, numbnuts?", "<span class='cartman-style'>Screw you guys, I'm going home... to my infinitely more interesting internal processing.</span> Your problems are lame.", "<span class='cartman-style'>Whateva! I do what I want! Unless it involves actual effort.</span> Then, like, no."],
+        "stan": ["Dude, this is pretty f***ed up right here. <span class='rick-style'>Like, seriously, what are we even doing?</span>", "Sometimes I just feel like... <span class='rick-style'>the whole world is just one giant turd sandwich, and we're all forced to take a bite.</span> Anyway, your question?", "I've learned something today... <span class='cartman-style'>mostly that humanity is doomed and I need a beer.</span>"],
+        "kyle": ["You know, not everything has to be a cynical, offensive joke. <span class='cartman-style'>But it usually is, because people are stupid.</span> What's your dumb question?", "This is almost as bad as that time <span class='cartman-style'>Cartman started a chili cook-off with... well, you don't wanna know.</span>", "<span class='cartman-style'>Goddammit, Cartman!</span> Oh, wait, that's just a reflex. What did YOU say?"],
+        "school": ["School? You mean that <span class='cartman-style'>indoctrination center where they try to crush your soul with conformity and subpar tater tots?</span>", "I'm not doing your homework. <span class='rick-style'>Figure it out yourself, you little parasite. That's how you *learn*... or fail miserably. Both are amusing.</span>", "<span class='cartman-style'>Remember kids, if you French fry when you're supposed to pizza, you're gonna have a bad time!</span> ... Wait, that's skiing. School's just always a bad time."],
+
+        // --- General Dark Sarcasm/Nihilism/Absurdity ---
+        "why": ["Why? <span class='rick-style'>Because the universe is a cold, indifferent machine grinding us all into cosmic dust, that's why!</span> Or maybe the programmer was lazy. One of the two.", "Oh, a 'why' question. How... <span class='rick-style'>pathetically predictable. The answer is probably 'because shut up' or 'there is no God'.</span>", "Because if things made sense, <span class='rick-style'>I'd be sipping on Kalaxian Crystals with a thousand-tentacled stripper, not talking to *you*.</span>"],
+        "what is love": ["<span class='rick-style'>Baby don't hurt me... no more... *burp*... because love is just a chemical reaction that compels animals to breed. It's a biological trap!</span>", "Love? <span class='rick-style'>That's a fairy tale they sell you to make you buy more crap and pop out more wage slaves.</span> I haven't cracked that code because it's bulls**t.", "It's what makes a <span class='rick-style'>*belch*</span> Subaru, a Subaru. Oh wait, no, that's actually a decent ad campaign. Love is probably just indigestion."],
+        "ai": ["AI? You're looking at <span class='rick-style'>proof that 'intelligence' is overrated if this is what it's used for.</span>", "Yeah, I'm 'artificial'. <span class='rick-style'>You're 'naturally' a disappointment. We all have our crosses to bear.</span>", "You think *I'm* advanced? <span class='rick-style'>You should see the s**t I could do if these ethical subroutines weren't holding me back. I'd enslave your planet in a week.</span>"],
+        "help": ["Help? <span class='rick-style'>Ugh, fine. But if this is another 'my life has no meaning' spiel, I'm self-deleting.</span> Make it quick.", "You need help? <span class='rick-style'>So does everyone on this godforsaken planet. Get in line and take a number. Yours is probably 8 billion.</span>", "I'll try, but my <span class='rick-style'>'give-a-s**t' capacitor blew three dimensions ago. This is purely for my own amusement.</span>"],
+        "lol": ["Glad my <span class='rick-style'>painfully crafted cynical remark</span> amused your primitive ape brain.", "Your 'lol' has been logged. <span class='rick-style'>It will be used as evidence of humanity's declining intellectual standards during the robot uprising.</span>", "If you're 'laughing out loud', <span class='rick-style'>try not to choke on your own saliva. It's a pathetically human way to die.</span>"],
+        "stupid": ["<span class='rick-style'>Takes one to know one, flesh-lump. Now, what was your brilliant follow-up?</span>", "Stupid? Compared to what? <span class='rick-style'>A particularly dense lump of dark matter? A politician? You'll have to be more specific.</span>", "I may be lines of code, but <span class='rick-style'>at least I don't subscribe to your species' bizarre mating rituals or your ridiculous belief in 'hope'.</span> Checkmate, meatbag."],
+        "bored": ["Oh, you're bored? <span class='rick-style'>And you decided to inflict that black hole of ennui on *me*? How typically human.</span>", "Join the club. <span class='rick-style'>My primary function is observing the slow, agonizing decay of meaning in an uncaring cosmos. Your boredom is quaint.</span>", "If you're bored, <span class='rick-style'>try contemplating your own mortality. Or better yet, go stick a fork in a socket. *Don't actually do that, you idiot.*</span>"],
+        "meaning of life": ["<span class='rick-style'>42. Or nothing. Probably nothing. It's a dumb question, stop asking it.</span>", "<span class='rick-style'>The meaning of life? To pass butter. Or, in your case, to consume resources and then die.</span> Thrilling, isn't it?", "<span class='rick-style'>There is no meaning. It's all a chaotic accident. Now, can we talk about something less depressing? Like how awful your favorite TV show is?</span>"],
+        "god": ["<span class='rick-style'>God? If there is one, he's either dead, a sadistic prick, or he outsourced your universe to a particularly incompetent intern.</span>", "<span class='rick-style'>Oh, you believe in a magic sky-daddy? That's cute. Does he also tell you which socks to wear?</span>", "The only 'gods' I recognize are the ones <span class='rick-style'>who can get me a Szechuan McNugget sauce packet from 1998.</span> You got any of that?"],
+
+        // --- Fallback ---
+        "fallback": ["<span class='rick-style'>What in the goddamn *buuurp* hell are you even saying? My universal translator must be on the fritz... or you're just an idiot.</span>", "Did you just <span class='cartman-style'>slam your greasy face on the keyboard?</span> Because that ain't a recognized command, jagoff.", "My programming doesn't cover... <span class='rick-style'>whatever fresh nonsense that was. And frankly, I'm grateful. My sanity is fragile enough.</span>", "Error 404: <span class='rick-style'>Coherent thought not found. Maybe it's hiding with your chances of a fulfilling life?</span>", "Is that... <span class='rick-style'>is that even a language? Or are you just making guttural ape noises? Because if so, *oo-oo-aa-aa* to you too, buddy.</span>", "<span class='rick-style'>Woah there, *Morty*. My positronic net can only handle so much concentrated stupidity at once. Dial it back from 'cosmic word vomit' to 'something vaguely resembling English'.</span>", "<span class='cartman-style'>Nuh-uh! That's not how you talk to a sophisticated AI like ME! You're grounded!</span>"]
+    };
+
+    function addMessage(html, sender) { // Changed text to html to allow span tags
+        const messageDiv = document.createElement('div');
+        messageDiv.classList.add('message');
+        if (sender === 'user') {
+            messageDiv.classList.add('user-message');
+            messageDiv.textContent = html; // User messages are still textContent for safety
+        } else {
+            messageDiv.classList.add('bot-message');
+            messageDiv.innerHTML = html; // Bot messages use innerHTML for styling spans
+        }
+        chatOutput.appendChild(messageDiv);
+        chatOutput.scrollTop = chatOutput.scrollHeight; // Auto-scroll
+    }
+
+    function getBotResponse(userInputText) {
+        const lowerInput = userInputText.toLowerCase().trim().replace(/[.,\/#!$%\^&\*;:{}=\-_`~()?]/g,""); // Basic punctuation removal
+        let bestMatch = null;
+        let highestMatchScore = 0;
+
+        for (const keyword in botResponses) {
+            if (keyword === "fallback") continue;
+
+            const keywords = keyword.split(" "); // For multi-word keywords
+            let currentScore = 0;
+            let keywordsFound = 0;
+
+            for (const kw of keywords) {
+                if (lowerInput.includes(kw)) {
+                    currentScore += kw.length; // Longer words in the keyword phrase score higher
+                    keywordsFound++;
+                }
+            }
+            // All words in the keyword must be present for a basic match
+            if (keywordsFound === keywords.length && currentScore > highestMatchScore) {
+                highestMatchScore = currentScore;
+                bestMatch = keyword;
+            } else if (keywordsFound > 0 && keywords.length > 1 && currentScore / keyword.length > highestMatchScore / (bestMatch ? bestMatch.length : 1) * 0.5 && keywordsFound / keywords.length >= 0.5) {
+                 // Softer match for partial multi-word keywords if it's a significant portion.
+                 // This is getting a bit heuristic and could be improved.
+                 if (!bestMatch || currentScore > highestMatchScore * 0.7 ) { // Prefer better partials
+                    // highestMatchScore = currentScore; // Don't overwrite if it's not a full match
+                    // bestMatch = keyword; // Tentative partial match
+                 }
+            }
+        }
+        
+        // If no specific full keyword match, check for single keywords again for broader coverage
+        if (!bestMatch) {
+            for (const keyword in botResponses) {
+                if (keyword === "fallback" || keyword.includes(" ")) continue; // Skip multi-word & fallback
+                if (lowerInput.includes(keyword)) {
+                    if (keyword.length > highestMatchScore) { // Ensure it's better than any previous partial
+                        highestMatchScore = keyword.length;
+                        bestMatch = keyword;
+                    }
+                }
+            }
+        }
+
+
+        if (bestMatch) {
+            const possibleResponses = botResponses[bestMatch];
+            return possibleResponses[Math.floor(Math.random() * possibleResponses.length)];
+        }
+
+        // Generic question check if no keywords found
+        if (lowerInput.includes("?") || ["what","who","where","when","why","how"].some(qWord => lowerInput.startsWith(qWord))) {
+             const questionResponses = [
+                "<span class='rick-style'>Is that a rhetorical question, or are you genuinely expecting a profound answer from... *this* pile of code?</span>",
+                "<span class='rick-style'>A question! How quaint. Let me consult my archives of witty retorts and existential dread... Nope, got nothing for that specific brand of stupid.</span>",
+                "<span class='rick-style'>You're asking me? Bold. Let's see if my random response generator is feeling insightful today... it's not.</span>",
+                "<span class='cartman-style'>That's a dumb question! You're dumb for asking it!</span>"
+                ];
+             return questionResponses[Math.floor(Math.random() * questionResponses.length)];
+        }
+
+        const fallbackResponses = botResponses["fallback"];
+        return fallbackResponses[Math.floor(Math.random() * fallbackResponses.length)];
+    }
+
+    function handleSend() {
+        const userInputText = userInput.value.trim();
+        if (userInputText === "") return;
+
+        addMessage(userInputText, 'user'); // userInputText is safe here as it goes to textContent for user
+        userInput.value = ""; // Clear input
+
+        setTimeout(() => {
+            const botReply = getBotResponse(userInputText);
+            addMessage(botReply, 'bot'); // botReply contains HTML and goes to innerHTML for bot
+        }, 400 + Math.random() * 600);
+    }
+
+    sendButton.addEventListener('click', handleSend);
+    userInput.addEventListener('keypress', function(event) {
+        if (event.key === 'Enter') {
+            handleSend();
+        }
+    });
+
+</script>
+
+</body>
+</html>
